@@ -1,5 +1,5 @@
 {
-  "name": "magnet-green-express",
+  "name": "magnet-greenlock-express",
   "version": "0.1.0",
   "description": "Magnet adapter for green-express",
   "keywords": [
@@ -7,9 +7,9 @@
     "magnetjs",
     "green-express"
   ],
-  "homepage": "https://github.com/magnetjs/magnet-green-express#readme",
+  "homepage": "https://github.com/magnetjs/magnet-greenlock-express#readme",
   "bugs": {
-    "url": "https://github.com/magnetjs/magnet-green-express/issues"
+    "url": "https://github.com/magnetjs/magnet-greenlock-express/issues"
   },
   "license": "MIT",
   "author": "Kieve Chua <kievechua@gmail.com> (https://github.com/kievechua)",
@@ -19,7 +19,7 @@
     "dist"
   ],
   "main": "dist/index.js",
-  "repository": "magnetjs/magnet-green-express",
+  "repository": "magnetjs/magnet-greenlock-express",
   "scripts": {
     "build": "tsc",
     "dist": "npm run build && npm publish",
