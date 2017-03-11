@@ -13,11 +13,6 @@
   },
   "license": "MIT",
   "author": "Kieve Chua <kievechua@gmail.com> (https://github.com/kievechua)",
-  "files": [
-    "README",
-    "CHANGELOG.md",
-    "dist"
-  ],
   "main": "dist/index.js",
   "repository": "magnetjs/magnet-greenlock-express",
   "scripts": {
