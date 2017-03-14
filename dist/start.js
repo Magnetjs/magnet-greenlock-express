@@ -12,12 +12,12 @@ const module_1 = require("magnet-core/module");
 const http = require("http");
 const https = require("https");
 const redirectHttps = require("redirect-https");
-const greenlock_1 = require("./config/greenlock");
+const greenlock_express_1 = require("./config/greenlock_express");
 // TODO: Increase the speed of get cert, or anyway to cache it?
 class Greenlock extends module_1.Module {
     setup() {
         return __awaiter(this, void 0, void 0, function* () {
-            const config = this.prepareConfig('greenlock', greenlock_1.default);
+            const config = this.prepareConfig('greenlock', greenlock_express_1.default);
             const log = this.log;
             if (config.redirectFromPort) {
                 http

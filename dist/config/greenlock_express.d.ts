@@ -1,6 +1,8 @@
 declare var _default: {
-    redirectFromPort: number;
-    httpsPort: number;
+    magnet: {
+        tls: string;
+        plain: string;
+    };
     server: string;
     debug: boolean;
     agreeTos: boolean;

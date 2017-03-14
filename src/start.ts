@@ -3,7 +3,7 @@ import * as http from 'http'
 import * as https from 'https'
 import * as redirectHttps from 'redirect-https'
 
-import defaultConfig from './config/greenlock'
+import defaultConfig from './config/greenlock_express'
 
 // TODO: Increase the speed of get cert, or anyway to cache it?
 export default class Greenlock extends Module {

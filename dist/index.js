@@ -10,17 +10,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const module_1 = require("magnet-core/module");
 const greenlock = require("greenlock-express");
-const greenlock_1 = require("./config/greenlock");
+const greenlock_express_1 = require("./config/greenlock_express");
 // TODO: Increase the speed of get cert, or anyway to cache it?
 class Greenlock extends module_1.Module {
     setup() {
         return __awaiter(this, void 0, void 0, function* () {
-            const config = this.prepareConfig('greenlock', greenlock_1.default);
+            const config = this.prepareConfig('greenlock_express', greenlock_express_1.default);
             this.app.greenlock = greenlock.create(config);
             // Any better way?
-            this.app.config.spdy.options = Object.assign(this.app.config.spdy.options, this.app.greenlock);
-            this.app.config.spdy.app = this.app.greenlock.middleware(this.app.koa.callback());
-            this.app.config.koaSslify.wrappers.push(this.app.greenlock.middleware);
+            // this.app.config.spdy.app = this.app.greenlock.middleware(this.app.koa.callback())
+            this.app.config[config.magnet.plain].wrappers.push(this.app.greenlock.middleware);
+            this.app.config[config.magnet.tls].wrappers.push(this.app.greenlock.middleware);
+            this.app.config[config.magnet.tls].httpsOptions = Object.assign(this.app.config.https.httpsOptions, this.app.greenlock.httpsOptions);
+            // this.app.config.spdy.wrappers.push(this.app.greenlock.middleware)
+            // this.app.config.spdy.httpsOptions = Object.assign(this.app.config.https.httpsOptions, this.app.greenlock.httpsOptions)
+            // this.app.config.spdy.httpsOptions = this.app.greenlock
         });
     }
 }
