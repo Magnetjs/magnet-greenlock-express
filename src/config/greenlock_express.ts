@@ -1,6 +1,10 @@
 export default {
   magnet: {
+    // Enable to attach to existing express server
+    // app: 'express',
+    // Attache to existing tls server
     tls: 'https',
+    // Attache to existing plain http server
     plain: 'http'
   },
 
