@@ -1,8 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = {
-    redirectFromPort: 80,
-    httpsPort: 443,
+    magnet: {
+        tls: 'https',
+        plain: 'http'
+    },
+    // Enable when using with magnet-greenlock-express/start
+    // plainPort: 80, // Enable it for redirect to httpsPort
+    // tlsPort: 443,
     server: 'staging',
     // server: 'https://acme-v01.api.letsencrypt.org/directory', // in production use 'https://acme-v01.api.letsencrypt.org/directory'
     // configDir: os.homedir() + '/letsencrypt/etc',
@@ -14,4 +19,4 @@ exports.default = {
         cb(null, { options, certs });
     }
 };
-//# sourceMappingURL=greenlock.js.map
+//# sourceMappingURL=greenlock_express.js.map
