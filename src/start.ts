@@ -1,12 +1,16 @@
 import { Module } from 'magnet-core/module'
 
-import defaultConfig from './config/greenlock_express'
-
 // TODO: Increase the speed of get cert, or anyway to cache it?
 export default class Greenlock extends Module {
-  async setup () {
-    const config = this.prepareConfig('greenlock', defaultConfig)
+  init () {
+    this.moduleName = 'greenlock-express'
+    this.defaultConfig = __dirname
+  }
 
-    this.app.greenlockExpressServer = this.app.greenlockExpress.listen(config.plainPort, config.tlsPort)
+  async setup () {
+    this.insert(
+      this.app.greenlockExpress.listen(this.config.plainPort, this.config.tlsPort),
+      'greenlockExpressServer'
+    )
   }
 }
