@@ -1,4 +1,4 @@
-declare var _default: {
+declare const _default: {
     magnet: {
         tls: string;
         plain: string;

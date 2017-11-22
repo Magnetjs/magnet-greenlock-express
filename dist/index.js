@@ -10,19 +10,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const module_1 = require("magnet-core/module");
 const greenlock = require("greenlock-express");
-const greenlock_express_1 = require("./config/greenlock_express");
 // TODO: Increase the speed of get cert, or anyway to cache it?
 class Greenlock extends module_1.Module {
+    init() {
+        this.moduleName = 'greenlock-express';
+        this.defaultConfig = __dirname;
+    }
     setup() {
         return __awaiter(this, void 0, void 0, function* () {
-            const config = this.prepareConfig('greenlock_express', greenlock_express_1.default);
-            if (config.magnet.app) {
-                config.app = this.app[config.magnet.app];
+            if (this.config.magnet.app) {
+                this.config.app = this.app[this.config.magnet.app];
             }
-            this.app.greenlockExpress = greenlock.create(config);
-            this.app.config[config.magnet.plain].wrappers.push(this.app.greenlockExpress.middleware);
-            this.app.config[config.magnet.tls].wrappers.push(this.app.greenlockExpress.middleware);
-            this.app.config[config.magnet.tls].httpsOptions = Object.assign(this.app.config.https.httpsOptions, this.app.greenlockExpress.httpsOptions);
+            this.insert(greenlock.create(this.config));
+            this.app.config[this.config.magnet.plain].wrappers.push(this.app.greenlockExpress.middleware);
+            this.app.config[this.config.magnet.tls].wrappers.push(this.app.greenlockExpress.middleware);
+            this.app.config[this.config.magnet.tls].httpsOptions = Object.assign(this.app.config.https.httpsOptions, this.app.greenlockExpress.httpsOptions);
         });
     }
 }
