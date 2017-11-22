@@ -17,7 +17,7 @@ class Greenlock extends module_1.Module {
     }
     setup() {
         return __awaiter(this, void 0, void 0, function* () {
-            this.insert(this.app.greenlockExpress.listen(this.config.plainPort, this.config.tlsPort), 'greenlockExpressServer');
+            this.insert(this.app.greenlock_express.listen(this.config.plainPort, this.config.tlsPort), 'greenlockExpressServer');
         });
     }
 }

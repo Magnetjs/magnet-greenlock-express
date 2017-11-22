@@ -22,9 +22,9 @@ class Greenlock extends module_1.Module {
                 this.config.app = this.app[this.config.magnet.app];
             }
             this.insert(greenlock.create(this.config));
-            this.app.config[this.config.magnet.plain].wrappers.push(this.app.greenlockExpress.middleware);
-            this.app.config[this.config.magnet.tls].wrappers.push(this.app.greenlockExpress.middleware);
-            this.app.config[this.config.magnet.tls].httpsOptions = Object.assign(this.app.config.https.httpsOptions, this.app.greenlockExpress.httpsOptions);
+            this.app.config[this.config.magnet.plain].wrappers.push(this.app.greenlock_express.middleware);
+            this.app.config[this.config.magnet.tls].wrappers.push(this.app.greenlock_express.middleware);
+            this.app.config[this.config.magnet.tls].httpsOptions = Object.assign(this.app.config.https.httpsOptions, this.app.greenlock_express.httpsOptions);
         });
     }
 }
