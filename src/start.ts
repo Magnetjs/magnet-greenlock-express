@@ -9,7 +9,7 @@ export default class Greenlock extends Module {
 
   async setup () {
     this.insert(
-      this.app.greenlockExpress.listen(this.config.plainPort, this.config.tlsPort),
+      this.app.greenlock_express.listen(this.config.plainPort, this.config.tlsPort),
       'greenlockExpressServer'
     )
   }

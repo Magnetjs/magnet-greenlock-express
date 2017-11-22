@@ -9,13 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const module_1 = require("magnet-core/module");
-const greenlock_express_1 = require("./config/greenlock_express");
 // TODO: Increase the speed of get cert, or anyway to cache it?
 class Greenlock extends module_1.Module {
+    init() {
+        this.moduleName = 'greenlock-express';
+        this.defaultConfig = __dirname;
+    }
     setup() {
         return __awaiter(this, void 0, void 0, function* () {
-            const config = this.prepareConfig('greenlock', greenlock_express_1.default);
-            this.app.greenlockExpressServer = this.app.greenlockExpress.listen(config.plainPort, config.tlsPort);
+            this.insert(this.app.greenlock_express.listen(this.config.plainPort, this.config.tlsPort), 'greenlockExpressServer');
         });
     }
 }
