@@ -1,6 +1,6 @@
 {
   "name": "magnet-greenlock-express",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Magnet adapter for green-express",
   "keywords": [
     "magnet",
@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "greenlock-express": "^2.0.9",
+    "koa-newrelic": "^2.0.3",
     "magnet-core": "^4.0.1"
   },
   "devDependencies": {
